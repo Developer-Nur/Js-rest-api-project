@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Recap With Phone Hunter</title>
+
+    <!-- tailwind & css component daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+
+    <!-- custom css -->
+    <style>
+        .font-poppins {
+            font-family: "Poppins", sans-serif;
+        }
+
+        .font-open-sans {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        .color-primary {
+            color: #0d6efd
+        }
+
+        .title-color {
+            color: #100f0f;
+        }
+
+        .sub-title-color {
+            color: #403f3f;
+        }
+
+        .text-color {
+            color: #706f6f
+        }
+
+        .bg-primary {
+            background: #0d6efd
+        }
+
+        .search-input-color {
+            background: #100f0f0d;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .bg-secondary {
+            background: #0d6efd0d;
+        }
+    </style>
+</head>
+
+<body class="container font-poppins">
+    <!-- header area -->
+    <header class="container pt-10 bg-secondary h-[800px]">
+        <div class="w-[80%] max-w-[1140px] mx-auto">
+            <!-- nav area -->
+            <div class="font-bold flex justify-between items-center">
+                <h3 class="text-2xl sub-title-color">Hot Gadgets</h3>
+                <button class="btn text-xl bg-primary text-white border-none">Sign Up</button>
+            </div>
+            <!-- call to action -->
+            <div class="text-center space-y-5 mt-20">
+                <h1 class="text-[60px] font-bold title-color">Apple Iphone 13 Pro Max</h1>
+                <p class="text-[18px] sub-title-color">There are many variations of passages of Lorem Ipsum available,
+                    but the majority <br>have suffered alteration in some form, by injected humou.</p>
+                <button class="btn text-xl bg-primary text-white border-none">Buy Now</button>
+            </div>
+            <!-- banner area -->
+            <div class="w-[75%] mx-auto mt-10  border-dashed border-2 border-[#2e2d2d4d] ">
+                <img class="w-full" src="./images/Group 48095420.png" alt="Banner Image">
+            </div>
+        </div>
+
+    </header>
+    <!-- websites content area -->
+    <main class="container w-[80%] max-w-[1140px] mx-auto text-center mt-[300px] mb-20">
+        <!-- search area -->
+        <section class="py-10">
+            <h3 class="text-[35px] font-semibold title-color">Search your phone</h3>
+            <div class="flex justify-center items-center gap-0 mt-5">
+                <input id="search-input" class="w-[500px]  p-3 rounded-t-lg search-input-color outline-none "
+                    type="text" placeholder="Search your phone">
+                <button onclick="searchHandler()"
+                    class="btn text-xl bg-primary text-white border-none ml-[-50px]">Search</button>
+            </div>
+        </section>
+
+
+        <!-- loading spinner -->
+        <div id="spinner" class="hidden mb-6">
+            <span class="loading loading-spinner loading-lg color-primary"></span>
+        </div>
+        <!-- products area for api -->
+        <section>
+
+            <!-- product area -->
+            <div id="product-container" class="flex flex-wrap gap-4 justify-center">
+                <!-- 
+                    Dynamic products area, coming from api
+                 -->
+            </div>
+            <!-- showing all product button -->
+            <div id="show-all-products" class="hidden">
+                <button onclick="showAllProducts()" class="mt-20 btn text-xl bg-primary text-white border-none ">Show
+                    All</button>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Single Product dynamic details api, Modal -->
+    <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="product_detail_modal.showModal()">open modal</button> -->
+        <dialog id="product_detail_modal" class="modal modal-bottom sm:modal-middle">
+            <!--  data coming from the js, api -->
+        </dialog>
+    </section>
+
+    <!-- footer area -->
+    <footer class="bg-secondary py-20">
+        <div class="container w-[80%] max-w-[1140px] mx-auto text-center">
+            <!-- footer top -->
+            <div class="font-open-sans flex justify-between items-center border-b-2 border-[#cfcfcf] pb-10">
+                <section class="space-y-5 ">
+                    <h4 class="text-5xl font-bold sub-title-color">Hot Gadgets</h4>
+                    <p class="text-color">You can definitely work.</p>
+                </section>
+                <!-- icons -->
+                <div class="flex justify-center items-center gap-3">
+                    <figure class="flex justify-center items-center gap-3">
+                        <img width="40px" src="./images/Facebook.png" alt="Logo-facebook">
+                        <img width="40px" src="./images/Twitter.png" alt="Logo-Twitter">
+                        <img width="40px" src="./images/Instagram.png" alt="Logo-Instagram">
+                    </figure>
+                    <button class="btn text-base bg-primary text-white border-none ">Join Premium</button>
+                </div>
+            </div>
+            <!-- footer bottom -->
+            <div class="grid grid-cols-4 justify-items-start gap-y-5  gap-x-24 mt-20">
+                <p class="text-xl font-[500] sub-title-color">Product</p>
+                <p class="text-xl font-[500] sub-title-color">Browse jobs</p>
+                <p class="text-xl font-[500] sub-title-color">Remote jobs</p>
+                <p class="text-xl font-[500] sub-title-color">Startup jobs</p>
+                <p class="text-xl font-[500] sub-title-color">Company jobs</p>
+                <p class="text-xl font-[500] sub-title-color">Popular</p>
+                <p class="text-xl font-[500] sub-title-color">UIUX Design</p>
+                <p class="text-xl font-[500] sub-title-color">Product Design</p>
+                <p class="text-xl font-[500] sub-title-color">Front-End Developer </p>
+                <p class="text-xl font-[500] sub-title-color">Back-End Developer</p>
+                <p class="text-xl font-[500] sub-title-color">Resource</p>
+                <p class="text-xl font-[500] sub-title-color">Faq</p>
+                <p class="text-xl font-[500] sub-title-color">Support</p>
+                <p class="text-xl font-[500] sub-title-color">Privacy Policy</p>
+                <p class="text-xl font-[500] sub-title-color">Terms of Service</p>
+                <p class="text-xl font-[500] sub-title-color">Company</p>
+                <p class="text-xl font-[500] sub-title-color">About Us</p>
+                <p class="text-xl font-[500] sub-title-color">Contact Us</p>
+                <p class="text-xl font-[500] sub-title-color">Career Tips</p>
+                <p class="text-xl font-[500] sub-title-color">Careers</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/phone.js"></script>
+</body>
+
+</html>
